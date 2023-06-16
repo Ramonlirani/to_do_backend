@@ -4,7 +4,6 @@ class TaskController {
     newTask(req,res){
         const {task, descriptionTask, responsible } = req.body
 
-        console.log(task, descriptionTask, responsible);
 
         database.insert({task, descriptionTask, responsible})
             .table("tasks")
@@ -37,7 +36,6 @@ class TaskController {
             .table("tasks")
             .where(id,'==', id)
             .then(task => {
-                console.log(task);
                 res.json(task)
         })
             .catch(error => {
